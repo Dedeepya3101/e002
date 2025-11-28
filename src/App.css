@@ -1,68 +1,220 @@
-header{
-  height: 50px;
-  background : linear-gradient(90deg,rgb(239, 4, 204) 0%, rgb(0, 60, 255) 100%);
-  color:white;
-  line-height: 50px;/*text come at centre from top and bottom height = line height*/ 
+/* ===========================
+   GLOBAL STYLES
+=========================== */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  min-height: 100vh;
+  color: #fff;
 }
-footer{
-height:30px;
-line-height: 30px;
-font-size: 8pt;
-color: white;
-background: linear-gradient(90deg,red 0%,blue 100%);
-text-align: center;
+
+/* Container for whole page */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
-section{
-  height: calc(100% - 80px) ;/*expression so tot height  - (header + footer )*/
-  overflow: auto;
+
+
+/* ===========================
+   NAVBAR
+=========================== */
+header {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
-nav{
+
+.navbar {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding: 18px 30px;
 }
-nav .logo{
-  font-size: 20px;
-  font-weight: bold;
-  margin-left: 15px;
-}
-nav ul{
-  list-style: none;/*do not want any dots for list*/
-  display: flex;
-  margin: 0%;
-  padding: 0%;
-}
-nav ul li {
-  margin: 0 15px;
-}
- nav .menu {
-   margin-right: 15px;
 
-   font-size: 20pt;
-   display: none;
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #fff;
 }
-/*Responsiveness*/
-@media(max-width: 768px){
-  nav .menu{
+
+/* nav links */
+.navlist {
+  list-style: none;
+  display: flex;
+  gap: 22px;
+}
+
+.navlist li {
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  color: #f1f1f1;
+  transition: 0.3s;
+}
+
+.navlist li:hover {
+  color: #fffa;
+  transform: translateY(-3px);
+}
+
+/* Hamburger menu for mobile */
+.menu {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: white;
+}
+
+/* Mobile nav hidden */
+@media (max-width: 768px) {
+  .navlist {
+    position: absolute;
+    top: 65px;
+    right: -200px;
+    width: 180px;
+    background: rgba(0, 0, 0, 0.45);
+    padding: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(6px);
+    flex-direction: column;
+    gap: 16px;
+    transition: 0.4s ease;
+  }
+
+  .navlist.active {
+    right: 20px;
+  }
+
+  .menu {
     display: block;
   }
-  nav ul{
-    display:none;
-    position: absolute;
-    top: 50px;
-    left: 0;
-    margin:0;
-    padding: 0;
-    background: white;
-    width: 100%;
-  }
-nav ul.active{
-    display: block;/*clciking again on 3lines all the options should close*/
-  }
-  nav ul li{
-    background: linear-gradient(90deg, blue 0%, purple 100%);
-    margin: 2px 0 0 0;
-    
-  }
-                                                                          
+}
 
+
+/* ===========================
+   MAIN SECTION (Forms)
+=========================== */
+.form-section {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.form-section h1 {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.form-section p {
+  color: #e0e0e0;
+  margin-bottom: 25px;
+  font-size: 15px;
+}
+
+/* container for 2 forms */
+.forms-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+
+/* ===========================
+   FORM CARDS
+=========================== */
+.card {
+  width: 320px;
+  background: #ffffff;
+  padding: 22px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  color: #333;
+  transition: 0.3s;
+  border-top: 5px solid #ff8ba7;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+.card h2 {
+  margin: 0 0 14px 0;
+  font-size: 22px;
+  color: #2d3436;
+}
+
+
+/* Input fields */
+.form-row {
+  margin-bottom: 14px;
+  text-align: left;
+}
+
+label {
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 2px solid #ddd;
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s;
+}
+
+input:focus {
+  border-color: #6c5ce7;
+  box-shadow: 0 0 8px rgba(108, 92, 231, 0.6);
+}
+
+/* Error messages */
+.error {
+  color: #d63031;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+/* Button styles */
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: linear-gradient(135deg, #ff7675, #e84393);
+  color: white;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.25);
+}
+
+
+/* ===========================
+   FOOTER
+=========================== */
+.site-footer {
+  margin-top: 40px;
+  padding: 18px;
+  background: rgba(0, 0, 0, 0.45);
+  text-align: center;
+  color: #eee;
+  font-size: 14px;
+  backdrop-filter: blur(6px);
 }
