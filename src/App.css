@@ -1,0 +1,68 @@
+header{
+  height: 50px;
+  background : linear-gradient(90deg,rgb(239, 4, 204) 0%, rgb(0, 60, 255) 100%);
+  color:white;
+  line-height: 50px;/*text come at centre from top and bottom height = line height*/ 
+}
+footer{
+height:30px;
+line-height: 30px;
+font-size: 8pt;
+color: white;
+background: linear-gradient(90deg,red 0%,blue 100%);
+text-align: center;
+}
+section{
+  height: calc(100% - 80px) ;/*expression so tot height  - (header + footer )*/
+  overflow: auto;
+}
+nav{
+  display: flex;
+  justify-content: space-between;
+}
+nav .logo{
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 15px;
+}
+nav ul{
+  list-style: none;/*do not want any dots for list*/
+  display: flex;
+  margin: 0%;
+  padding: 0%;
+}
+nav ul li {
+  margin: 0 15px;
+}
+ nav .menu {
+   margin-right: 15px;
+
+   font-size: 20pt;
+   display: none;
+}
+/*Responsiveness*/
+@media(max-width: 768px){
+  nav .menu{
+    display: block;
+  }
+  nav ul{
+    display:none;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    margin:0;
+    padding: 0;
+    background: white;
+    width: 100%;
+  }
+nav ul.active{
+    display: block;/*clciking again on 3lines all the options should close*/
+  }
+  nav ul li{
+    background: linear-gradient(90deg, blue 0%, purple 100%);
+    margin: 2px 0 0 0;
+    
+  }
+                                                                          
+
+}
